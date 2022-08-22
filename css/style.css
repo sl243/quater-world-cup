@@ -12,5 +12,12 @@
 }
 
 .selected-player {
-    height: 300px;
+    height: 340px;
+}
+
+/* footer  */
+
+.footer {
+    height: 100px;
+    padding-top: 40px;
 }
