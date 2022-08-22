@@ -6,3 +6,11 @@
     padding-top: 180px;
     font-size: 80px;
 }
+
+.main-section {
+    margin-top: 40px;
+}
+
+.selected-player {
+    height: 300px;
+}
