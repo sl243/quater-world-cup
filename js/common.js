@@ -1,14 +1,18 @@
 const playerArrary = [];
 
+
 function displayPlayerName(players) {
+
     const selectedV = document.getElementById('selected-v');
     selectedV.innerText = '';
 
     for (let i = 0; i < playerArrary.length; i++) {
         const name = playerArrary[i].playerName;
 
-        const lengthCount = playerArrary.length;
-        // console.log(lengthCount * 1000)
+        if (playerArrary.length === 5) {
+            alert('Do not Add More Player')
+        }
+
 
         const tr = document.createElement('tr');
         tr.innerHTML = `
@@ -17,6 +21,7 @@ function displayPlayerName(players) {
         `
         selectedV.appendChild(tr);
     }
+
 }
 
 function addPlayer(player) {
@@ -31,3 +36,16 @@ function addPlayer(player) {
 
     displayPlayerName(playerArrary);
 }
+
+const perPlayerCost = document.getElementById('per-player-cost').addEventListener('click', function () {
+    const playerCostInput = document.getElementById('player-cost-input');
+    const playerCostAmountString = playerCostInput.value;
+    const playerCostAmount = parseFloat(playerCostAmountString);
+    playerCostInput.value = '';
+
+    // console.log(playerCostAmount);
+
+    totalCost = playerCostAmount * playerArrary.length;
+
+    console.log(totalCost)
+})
