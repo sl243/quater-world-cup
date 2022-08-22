@@ -9,9 +9,9 @@ function displayPlayerName(players) {
     for (let i = 0; i < playerArrary.length; i++) {
         const name = playerArrary[i].playerName;
 
-        if (playerArrary.length === 5) {
-            alert('Do not Add More Player')
-        }
+        // if (playerArrary.length === 5) {
+        //     alert('Do not Add More Player')
+        // }
 
 
         const tr = document.createElement('tr');
@@ -34,18 +34,29 @@ function addPlayer(player) {
 
     playerArrary.push(playerNameObj);
 
+    document.getElementById('total-player').innerText = playerArrary.length;
+
     displayPlayerName(playerArrary);
 }
 
-const perPlayerCost = document.getElementById('per-player-cost').addEventListener('click', function () {
-    const playerCostInput = document.getElementById('player-cost-input');
-    const playerCostAmountString = playerCostInput.value;
-    const playerCostAmount = parseFloat(playerCostAmountString);
-    playerCostInput.value = '';
+function getExpenseValueById(elementId) {
+    const expensesValue = document.getElementById(elementId);
+    const expensesValueString = expensesValue.value;
+    const expenses = parseInt(expensesValueString);
+    return expenses;
+}
 
-    // console.log(playerCostAmount);
+document.getElementById('per-player-cost').addEventListener('click', function () {
+    const playerCostInput = getExpenseValueById('player-cost-input');
+    const playerCost = playerCostInput * playerArrary.length;
 
-    totalCost = playerCostAmount * playerArrary.length;
+    playerCostInput.innerText = '';
 
-    console.log(totalCost)
+    const totalPlayerExpenses = document.getElementById('total-player-expenses');
+    const totalExpensesString = totalPlayerExpenses.innerText;
+    const totalExpenses = parseFloat(totalExpensesString);
+
+    const total = totalExpenses + playerCost;
+
+    totalPlayerExpenses.innerText = total;
 })
