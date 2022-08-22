@@ -11,6 +11,11 @@
     margin-top: 40px;
 }
 
+.player-img img {
+    width: 100px;
+    height: 80px;
+}
+
 .selected-player {
     height: 340px;
 }

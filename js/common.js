@@ -43,14 +43,15 @@ function getExpenseValueById(elementId) {
     const expensesValue = document.getElementById(elementId);
     const expensesValueString = expensesValue.value;
     const expenses = parseInt(expensesValueString);
+
+    expensesValue.value = '';
     return expenses;
 }
 
 document.getElementById('per-player-cost').addEventListener('click', function () {
+
     const playerCostInput = getExpenseValueById('player-cost-input');
     const playerCost = playerCostInput * playerArrary.length;
-
-    playerCostInput.innerText = '';
 
     const totalPlayerExpenses = document.getElementById('total-player-expenses');
     const totalExpensesString = totalPlayerExpenses.innerText;
@@ -59,4 +60,27 @@ document.getElementById('per-player-cost').addEventListener('click', function ()
     const total = totalExpenses + playerCost;
 
     totalPlayerExpenses.innerText = total;
+
+})
+
+document.getElementById('calculate-total-cost').addEventListener('click', function () {
+    const managerInput = getExpenseValueById('manager-input');
+    const coachInput = getExpenseValueById('coach-input');
+
+    const managerCoachExpense = managerInput + coachInput;
+
+    const totalPlayerExpenses = document.getElementById('total-player-expenses');
+    const totalExpensesString = totalPlayerExpenses.innerText;
+    const totalExpensesx = parseFloat(totalExpensesString);
+
+    const abc = totalExpensesx + managerCoachExpense;
+
+    const calculateTotalExpense = document.getElementById('calculate-total-Expense');
+    const calculateTotalExpenseString = calculateTotalExpense.innerText;
+    const calculateTotal = parseFloat(calculateTotalExpenseString);
+
+    const totalExpenses = abc + calculateTotal;
+
+    calculateTotalExpense.innerText = totalExpenses;
+
 })

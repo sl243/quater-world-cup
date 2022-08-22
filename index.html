@@ -41,7 +41,7 @@
                             <div class="col-4 d-flex mb-2">
                                 <!-- player 1  -->
                                 <div class="card" style="width: 18rem;">
-                                    <img src="images/messy.jpg" class="card-img-top" alt="...">
+                                    <img src="images/dibala.jpg" class="card-img-top player-img" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">Paulo Dibala</h5>
                                         <p class="card-text">36 Goals . 120 Assist</p>
@@ -125,15 +125,17 @@
                                         <label for="">Per Player</label>
                                         <input id="player-cost-input" type="text">
                                         <button id="per-player-cost"
-                                            class="btn btn-primary w-100 text-white mt-3">Select</button>
+                                            class="btn btn-primary w-100 text-white mt-3">Calculate</button>
                                         <h4 class="mt-3">Player Expenses &nbsp; $<span
                                                 id="total-player-expenses">0</span></h4>
                                         <label class="mb-2" for="">Manager</label>
-                                        <input class="mb-2" type="text"> <br> &nbsp;&nbsp;&nbsp;
+                                        <input id="manager-input" class="mb-2" type="text"> <br> &nbsp;&nbsp;&nbsp;
                                         <label for="">Coach</label>
-                                        <input type="text">
-                                        <button class="btn btn-primary w-100 text-white mt-3">Calculate Total</button>
-                                        <h4 class="mt-3 mb-5">Total &nbsp; $<span>11000</span></h4>
+                                        <input id="coach-input" type="text">
+                                        <button id="calculate-total-cost"
+                                            class="btn btn-primary w-100 text-white mt-3">Calculate Total</button>
+                                        <h4 class="mt-3 mb-5">Total &nbsp; $<span id="calculate-total-Expense">0</span>
+                                        </h4>
                                     </div>
                                 </div>
                             </div>
