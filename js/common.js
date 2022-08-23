@@ -2,17 +2,11 @@ const playerArrary = [];
 
 
 function displayPlayerName(players) {
-
     const selectedV = document.getElementById('selected-v');
     selectedV.innerText = '';
 
     for (let i = 0; i < playerArrary.length; i++) {
         const name = playerArrary[i].playerName;
-
-        // if (playerArrary.length === 5) {
-        //     alert('Do not Add More Player')
-        // }
-
 
         const tr = document.createElement('tr');
         tr.innerHTML = `
@@ -26,6 +20,12 @@ function displayPlayerName(players) {
 
 function addPlayer(player) {
 
+    if (playerArrary.length >= 5) {
+        playerArrary.length = 5;
+        alert('Do not add more player');
+        return;
+    }
+
     const playerName = player.parentNode.children[0].innerText;
 
     const playerNameObj = {
@@ -37,6 +37,8 @@ function addPlayer(player) {
     document.getElementById('total-player').innerText = playerArrary.length;
 
     displayPlayerName(playerArrary);
+
+    player.disabled = true;
 }
 
 function getExpenseValueById(elementId) {
@@ -45,12 +47,19 @@ function getExpenseValueById(elementId) {
     const expenses = parseInt(expensesValueString);
 
     expensesValue.value = '';
+
+    if (isNaN(expenses)) {
+        alert('Please Provide Valid Number');
+        return;
+    }
+
     return expenses;
 }
 
 document.getElementById('per-player-cost').addEventListener('click', function () {
 
     const playerCostInput = getExpenseValueById('player-cost-input');
+
     const playerCost = playerCostInput * playerArrary.length;
 
     const totalPlayerExpenses = document.getElementById('total-player-expenses');
