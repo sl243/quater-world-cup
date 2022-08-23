@@ -49,7 +49,7 @@ function getExpenseValueById(elementId) {
     expensesValue.value = '';
 
     if (isNaN(expenses)) {
-        alert('Please Provide Valid Number');
+        alert('Please Provide Valid Amount');
         return;
     }
 
@@ -82,13 +82,13 @@ document.getElementById('calculate-total-cost').addEventListener('click', functi
     const totalExpensesString = totalPlayerExpenses.innerText;
     const totalExpensesx = parseFloat(totalExpensesString);
 
-    const abc = totalExpensesx + managerCoachExpense;
+    const totalAmount = totalExpensesx + managerCoachExpense;
 
     const calculateTotalExpense = document.getElementById('calculate-total-Expense');
     const calculateTotalExpenseString = calculateTotalExpense.innerText;
     const calculateTotal = parseFloat(calculateTotalExpenseString);
 
-    const totalExpenses = abc + calculateTotal;
+    const totalExpenses = totalAmount + calculateTotal;
 
     calculateTotalExpense.innerText = totalExpenses;
 
